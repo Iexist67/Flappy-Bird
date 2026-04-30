@@ -1,0 +1,325 @@
+
+@font-face{
+    font-family: theCustomFont;
+    src:url(PressStart2P-Regular.ttf);
+}
+body{
+    margin:0;
+     background-image: linear-gradient(0deg,rgba(50, 207, 199, 1) 7%, rgba(177, 177, 227, 1) 100%);
+     min-height:100vh;
+     overflow:hidden;
+}
+
+#gameArea{
+
+    height:500px;
+    width:350px;
+    border:5px solid #94F7ED;
+    border-radius:15px;
+    corner-shape:squircle;
+    margin:0px;
+    padding:0px;   
+    overflow:hidden;
+    background-color: rgb(7, 205, 250);
+    position:relative;
+    
+
+}
+
+#flappy{
+
+    position: relative;
+    top:238px;
+    left:50px;
+    width:32px;
+    height:24px;
+    z-index:499;
+    margin:0px;
+    padding:0px;
+    background-image: url(flappy.png);
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    
+
+}
+
+#score {
+
+    position:absolute;
+    z-index: 9999;
+    top:5px;
+    width:40px;
+    text-align:center;
+    right: 155px;
+    font-family: theCustomFont;
+    color:black;
+    font-size: 35px;
+
+}
+
+#brush1{
+
+    position:absolute;
+    left:0px;
+    top:450px;
+    background-image: url(brush.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    height:50px;
+    width:350px;
+    z-index: 9999;
+
+}
+#brush2{
+    position:absolute;
+    left:350px;
+    top:450px;
+    background-image:url(brush.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    height:50px;
+    width:350px;
+    z-index: 9999;
+}
+
+#background1{
+
+    position:absolute;
+    left:0px;
+    top:300px;
+    background-image: url(background.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    height:200px;
+    width:350px;
+    z-index: 0;
+
+}
+#background2{
+    position:absolute;
+    left:350px;
+    top:300px;
+    background-image:url(background.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    height:200px;
+    width:350px;
+    z-index: 0;
+}
+
+#sky1{
+
+    position:absolute;
+    left:0px;
+    top:0px;
+    background-image: url(sky.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    height:200px;
+    width:350px;
+    z-index: 0;
+
+}
+#sky2{
+    position:absolute;
+    left:350px;
+    top:0px;
+    background-image:url(sky.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    height:200px;
+    width:350px;
+    z-index: 0;
+}
+
+
+#restart{
+
+    height:40px; 
+    width:100px; 
+    left:125px; 
+    top:230px;
+    z-index:9999;
+    position:absolute;
+    background:red;
+    border:2px solid black;
+    color:white;
+    border-radius:30px;
+    corner-shape: squircle;
+    overflow:hidden;
+    font-family: theCustomFont;
+    text-align:center;
+    transition:1s
+
+}
+/*
+#restart::before{
+
+    content: "";
+    position:absolute;
+    top:-2px;
+    left: -150px;
+    width:125px;
+    height:22px;
+    transform:skewX(30deg);
+    background: #d1f0d4;
+    background: linear-gradient(90deg, rgba(209, 240, 212, 1) 0%, rgba(168, 173, 168, 1) 100%);
+    transition:1s;
+    z-index:-1;
+
+}
+*/
+#restart:hover::before{
+    left: -10px;
+
+    transition:1s;
+
+}
+#restart:hover{
+    transform: translateY(-10px);
+    height:50px;
+    border-bottom:10px solid black;
+    transition:1s
+}
+#restart:active{
+
+    transform: translateY(0px);
+    height:40px;
+    border-bottom: 2px solid black;
+    transition: 100ms;
+
+}
+
+/*
+#restart::after{
+
+    content: "";
+    position:absolute;
+    top:20px;
+    left: 125px;
+    width:125px;
+    height:20px;
+    transform:skewX(30deg);
+    background: #d1f0d4;
+background: linear-gradient(90deg, rgba(209, 240, 212, 1) 0%, rgba(168, 173, 168, 1) 100%);
+z-index:-1;
+transition:1s;
+
+}
+*/
+#restart:hover::after{
+
+     left: -10px;
+
+    transition:1s;
+
+}
+
+#radio{
+
+    border:5px solid #94F7ED;
+    border-radius:15px;
+    padding:15px;
+    corner-shape: squircle;
+    width:100px;
+    height:150px;
+    display:flex;
+    flex-direction:column;
+    flex-wrap:nowrap;
+    justify-content:center;
+    gap:20px;
+      background: linear-gradient(180deg,rgba(255, 3, 238, 1) 0%, rgba(5, 252, 232, 1) 100%);
+}
+
+#radio div{
+
+    position:relative;
+    left:0px;
+    font-size:20px;
+     font-family: theCustomFont;
+    font-size:11px;
+    color:white;
+
+}
+
+.format{
+    font-family:theCustomFont;
+    font-size:15px;
+    color:white;
+}
+
+
+#scoreboard{
+
+    border:5px solid #94F7ED;
+    border-radius: 15px;
+    corner-shape:squircle;
+
+    width:100px;
+
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    justify-content:center;
+    align-items:center;
+    padding:15px;
+
+    overflow:hidden;
+
+    background: linear-gradient(180deg,rgba(255, 3, 238, 1) 0%, rgba(5, 252, 232, 1) 100%);
+
+}
+
+#scoreboard div{
+
+    border:2px solid white;
+    border-radius:15px;
+    corner-shape: squircle;
+    text-align:center;
+}
+
+
+#importantstuff{
+
+    display:flex;
+    flex-direction:row;
+    gap:5px;
+    justify-content:center;
+    align-items:center;
+    position:fixed;
+    top:50vh;
+    left:50vw;
+    transform:translate(-50%, -50%);
+    
+}
+
+h1{
+    position:static;
+}
+
+input[type="radio"] {
+  /* Remove default styling */
+  appearance: none;
+  -webkit-appearance: none;
+  
+  /* Create square shape */
+  width: 15px;
+  height: 15px;
+  border: 2px solid white;
+  background-color: white;
+  cursor: pointer;
+  transition:0.5s;
+}
+
+/* Optional: Fill the square when checked */
+input[type="radio"]:checked {
+  background-color: red;
+  transition:0.5s;
+}
