@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title> Flappy bird</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h1 style="color:white"> flappy bird game</h1>
+
+<div id="importantstuff">
+    <div id="radio">
+
+        <div id="easyRadio" class="theRadio">
+        <input type="radio" id="easy" name="difficulty" value="easy" onchange="easy()">
+        <label for="easy"> easy </label> <br>
+        </div>
+
+        <div id="mediumRadio" class="theRadio">
+        <input type="radio" id="medium" name="difficulty" value="medium" checked onchange="medium()">
+        <label for="medium"> medium </label> <br>
+        </div>
+
+        <div id="hardRadio" class="theRadio">
+        <input type="radio" id="hard" name="difficulty" value="hard" onchange="hard()">
+        <label for="hard"> hard </label>
+        </div>
+
+    </div>
+
+    <div id="gameArea">
+
+        <p id="flappy"><span id="hitbox"></span></p>
+        <p id="score"> 0 </p>
+        <button onclick="restartGame()" id="restart" style="display:none;"> Restart </button>
+        <p id="brush1"></p>
+        <p id="brush2"></p>
+        <p id="background1"></p>
+        <p id="background2"></p>
+        <p id="sky1"></p>
+        <p id="sky2"></p>
+
+    </div>
+
+
+    <div id="scoreboard">
+
+        <p class="format" style="text-align:center"> 
+            Top Scores
+        </p>
+
+        <div id="easyScoreboard">
+            <p class="format"> Top 3 Easy</p>
+            <p id="textEasy" class="format"> 0 <br> 0 <br> 0 </p>
+        </div>
+
+        <div id="mediumScoreboard">
+            <p class="format" > Top 3 Medium</p>
+            <p id="textMedium" class="format"> 0 <br> 0 <br> 0</p>
+        </div>
+
+        <div id="hardScoreboard">
+            <p class="format"> Top 3 Hard</p>
+            <p id="textHard" class="format"> 0 <br> 0 <br> 0</p>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script src="script.js"></script>
+</body>
+
+</html>
