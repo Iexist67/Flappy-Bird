@@ -26,6 +26,18 @@ body{
 
 }
 
+#hitbox{
+ position:absolute;
+    left:4px;
+    background:none;
+    border: 2px transparent black;
+    content:"";
+    width:24px;
+    height:24px;
+    border-radius:50%;
+    z-index:500;
+}
+
 #flappy{
 
     position: relative;
@@ -40,7 +52,7 @@ body{
     background-position: center;
     background-size:cover;
     background-repeat: no-repeat;
-    
+    /*border: 1px solid black;*/
 
 }
 
