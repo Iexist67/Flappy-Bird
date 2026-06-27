@@ -3,7 +3,9 @@ A simple replication of the popular game, flappy-bird. Try to dodge pipes as a b
 
 <img width="1918" height="1148" alt="Recording 2026-06-26 235155" src="https://github.com/user-attachments/assets/b0f33d3b-3bf6-453e-a4d7-2eac1d40696d" />
 
-Here is a "try me" link: https://iexist67.github.io/Flappy-Bird/
+**Here is a "try me"**
+
+  link: https://iexist67.github.io/Flappy-Bird/
 
 **Features:**
 
