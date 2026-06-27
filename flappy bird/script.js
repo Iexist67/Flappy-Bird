@@ -49,11 +49,16 @@ let hardness = -150;
 let scoreEasyStr;
 let scoreMediumStr;
 let scoreHardStr;
+//hitbox middle x/y coords
+let hitboxXPos = 50 + 12; // 12 is half of the hitbox width
+let hitboxYPos = position + 12; // 12 is half of the hitbox height
+// hitbox var
+let hitbox = document.getElementById("hitbox");
 
 
 //setInterval(intervaledTop, 20);
 function intervaledTop(){
-    console.log(velocityUp);
+    console.log(position);
 }
 
 document.addEventListener("keydown", keybinds);
@@ -90,7 +95,8 @@ setInterval(flappyGoUp, 20);
 
 function flappyGoUp(){
 
-
+    //update hitboxpos y
+        hitboxYPos = position + 12
     if(gameStart == true && lose == false){
         if(position <= 468){
            // if(jumpChecker == true){
@@ -143,6 +149,7 @@ function restartObjects(){
         addingTheSpeed();
         document.getElementById("score").innerHTML = score;
     }
+    hitbox.style.borderColor = "black";
 }
 setInterval(restartObjects, 20);
 
@@ -203,12 +210,80 @@ function addObjectTop(theHeight1){
 
 let inPipeX;
 let inPipeY;
+ let sideWaysDistance;
+ let firstCornerDistance;
+ let topSideDistance;
+ let secondCornerDistance
+ let circleY;
 
 setInterval(checkCollision, 10);
 function checkCollision(){
 
-    inPipeX = 0 <= ySpeed && ySpeed <= 82;
-    inPipeY = (position <= (theHeight + (hardness - 4))) || ((position + 20) >= (theHeight));
+        // circle equation important (x-h)^{2} + (y-k)^{2} = r^{2}
+
+    // checks if hitbox is below the top of the bottom pipe or above the bottom of the top pipe, and runs a distance calculator
+    if((hitboxYPos > theHeight + 12) || (hitboxYPos < theHeight + hardness - 12)){
+        circleY = 0;
+
+        sideWaysDistance = Math.sqrt(((ySpeed - hitboxXPos) ** 2) + circleY);
+        if(sideWaysDistance <= 12){
+            inPipeY = true;
+            hitbox.style.borderColor = "black";
+        }
+    }
+     
+    // checks if hitbox is between the corner of the pipe
+    if(((hitboxYPos > theHeight - 12) && (hitboxYPos < theHeight + 12)) || ((hitboxYPos < theHeight + hardness + 12) && (hitboxYPos > theHeight + hardness - 12))){
+
+        if(((hitboxYPos > theHeight - 12) && (hitboxYPos < theHeight + 12))){
+            circleY = (hitboxYPos - theHeight) ** 2;
+        }
+        if(((hitboxYPos < theHeight + hardness + 12) && (hitboxYPos > theHeight + hardness - 12))){
+            circleY = (hitboxYPos - (theHeight + hardness)) ** 2;
+        }
+
+        firstCornerDistance = Math.sqrt(((ySpeed - 62) ** 2) + circleY);
+        if(firstCornerDistance <= 12){
+            inPipeY = true;
+            hitbox.style.borderColor = "black";
+        }
+    }
+    // checks if hitbox is between the corner of the pipe
+    if(((hitboxYPos > theHeight - 12) && (hitboxYPos < theHeight + 12)) || ((hitboxYPos < theHeight + hardness + 12) && (hitboxYPos > theHeight + hardness - 12))){
+
+        if(((hitboxYPos > theHeight - 12) && (hitboxYPos < theHeight + 12))){
+            circleY = (hitboxYPos - theHeight) ** 2;
+        }
+        if(((hitboxYPos < theHeight + hardness + 12) && (hitboxYPos > theHeight + hardness - 12))){
+            circleY = (hitboxYPos - (theHeight + hardness)) ** 2;
+        }
+
+        secondCornerDistance = Math.sqrt(((ySpeed - (hitboxXPos - 50)) ** 2) + circleY);
+
+        if(secondCornerDistance <= 12){
+            inPipeY = true;
+            hitbox.style.borderColor = "black";
+        }
+    }
+
+    // checks if hitbox is at the bottome or top of the pipes
+    if(((hitboxYPos > theHeight - 12) || (hitboxYPos < theHeight + hardness + 12)) && (0 <= ySpeed && ySpeed <= 74)){
+        
+        if(hitboxYPos > theHeight - 12){
+        topsideDistance = Math.sqrt(((hitboxYPos - theHeight) ** 2) + 0);
+        }
+        if(hitboxYPos < theHeight + hardness + 12){
+        topsideDistance = Math.sqrt(((hitboxYPos - (theHeight + hardness)) ** 2) + 0);
+        }
+
+        if(topsideDistance <= 12){
+            inPipeY = true;
+            hitbox.style.borderColor = "black";
+        }
+    }
+
+   inPipeX = (0 <= ySpeed && ySpeed <= 74);
+    // inPipeY
 
     if(inPipeX && inPipeY){
         lose = true;
@@ -291,6 +366,8 @@ function restartGame(){
 
     lose = false;
     gameStart = false;
+    inPipeX = false;
+    inPipeY = false;
     position = 238;
     speed = -4;
     score = 0;
